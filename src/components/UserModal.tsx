@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Modal, CloseButton } from "react-bootstrap";
 
 interface Timesheet {
@@ -63,7 +64,7 @@ function UserModal({ user, timesheets, show, onHide }: UserModalProps) {
       </Modal.Body>
 
       <Modal.Footer>
-        <CloseButton variant="secondary" onClick={onHide} />
+        <CloseButton onClick={onHide} />
       </Modal.Footer>
     </Modal>
   );
