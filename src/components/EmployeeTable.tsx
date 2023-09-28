@@ -1,14 +1,20 @@
-// EmployeeTable.tsx
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Table, Button } from "react-bootstrap";
 import { useEmployeeContext } from "../EmployeeContext";
-import UserModal from "./UserModal"; // Импортируйте новый компонент
+import UserModal from "./UserModal";
+
+interface User {
+  id: string;
+  firstName: string;
+  lastName: string;
+  position: string;
+}
 
 function EmployeeTable() {
   const { employees, timesheets } = useEmployeeContext();
   const [selectedUser, setSelectedUser] = useState<any>(null);
 
-  const openUserModal = (user: any) => {
+  const openUserModal = (user: User) => {
     setSelectedUser(user);
   };
 

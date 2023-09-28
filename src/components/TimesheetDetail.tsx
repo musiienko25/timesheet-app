@@ -1,12 +1,22 @@
 import { useParams } from "react-router-dom";
 import { useEmployeeContext } from "../EmployeeContext";
 
+interface Timesheet {
+  id: string;
+  assessment: number;
+  breakMinutes: number;
+  minutes: number;
+  startTime: string;
+  endTime: string;
+  userId: string;
+}
+
 function TimesheetDetail() {
   const { userId } = useParams<{ userId: string }>();
   const { timesheets } = useEmployeeContext();
 
   const userTimesheets = timesheets.filter(
-    (timesheet: any) => timesheet.userId === userId
+    (timesheet: Timesheet) => timesheet.userId === userId
   );
 
   return (
