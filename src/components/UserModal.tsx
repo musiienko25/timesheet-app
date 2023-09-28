@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Modal, CloseButton } from "react-bootstrap";
+import { Modal, CloseButton, Form } from "react-bootstrap";
 
 interface Timesheet {
   id: string;
@@ -35,23 +35,22 @@ function UserModal({ user, timesheets, show, onHide }: UserModalProps) {
 
   const sortedTimesheets = filteredTimesheets.sort(compareStartTime);
 
-  const [selectedDate, setSelectedDate] = useState<string | null>(null);
+  const [selectedMonth, setSelectedMonth] = useState<string | null>(null);
 
-  const handleDateChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+  const handleMonthChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const selectedValue = event.target.value;
-    setSelectedDate(selectedValue !== "all" ? selectedValue : null);
+    setSelectedMonth(selectedValue !== "all" ? selectedValue : null);
   };
 
-  const filteredByDateTimesheets = selectedDate
+  const filteredByMonthTimesheets = selectedMonth
     ? sortedTimesheets.filter((timesheet) =>
-        timesheet.startTime.includes(selectedDate)
+        timesheet.startTime.includes(selectedMonth)
       )
     : sortedTimesheets;
 
-  // Получение уникальных дат из записей
-  const uniqueDates = Array.from(
+  const uniqueMonths = Array.from(
     new Set(
-      sortedTimesheets.map((timesheet) => timesheet.startTime.substr(0, 10))
+      sortedTimesheets.map((timesheet) => timesheet.startTime.substr(0, 7))
     )
   );
 
@@ -63,15 +62,14 @@ function UserModal({ user, timesheets, show, onHide }: UserModalProps) {
         </Modal.Title>
       </Modal.Header>
       <div className="usermodal__select">
-        {" "}
-        <select onChange={handleDateChange}>
-          <option value="all">All Dates</option>
-          {uniqueDates.map((date) => (
-            <option key={date} value={date}>
-              {date}
+        <Form.Select onChange={handleMonthChange}>
+          <option value="all">All Months</option>
+          {uniqueMonths.map((month) => (
+            <option key={month} value={month}>
+              {month}
             </option>
           ))}
-        </select>
+        </Form.Select>
       </div>
       <Modal.Body>
         {user && (
@@ -88,7 +86,7 @@ function UserModal({ user, timesheets, show, onHide }: UserModalProps) {
                 </tr>
               </thead>
               <tbody className="usermodal__tbody">
-                {filteredByDateTimesheets.map((timesheet: Timesheet) => (
+                {filteredByMonthTimesheets.map((timesheet: Timesheet) => (
                   <tr key={timesheet.id}>
                     <td>{timesheet.id}</td>
                     <td>{timesheet.assessment}</td>
