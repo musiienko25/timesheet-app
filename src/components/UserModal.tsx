@@ -55,7 +55,7 @@ function UserModal({ user, timesheets, show, onHide }: UserModalProps) {
   );
 
   return (
-    <Modal show={show} onHide={onHide} className="employeetable__modal">
+    <Modal show={show} onHide={onHide} className="usermodal">
       <Modal.Header closeButton>
         <Modal.Title>
           Timesheets for {user?.firstName} {user?.lastName}

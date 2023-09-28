@@ -2,18 +2,19 @@
   text-align: center;
 }
 
-.employeetable__modal .modal-content{
+.usermodal .modal-content{
   width: fit-content;
 }
 
-.employeetable__modal .modal-dialog{
+.usermodal .modal-dialog{
   justify-content: center;
   display: flex;
 }
 
-.usermodal__thead tr th, .usermodal__tbody tr td {
+.usermodal th,
+.usermodal td {
   min-width: 150px;
-  text-align: center;
+  padding: 8px;
 }
 
 .usermodal__select {
