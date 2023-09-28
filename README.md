@@ -12,4 +12,4 @@ If you have question don't hesitate to ask.
 
 # Task result 
 
-![Gif](https://github.com/musiienko25/timesheet-app/assets/42385970/04ecfee6-6bf7-4ed1-9a4f-cc8ea78d9cf9)
+![Gif](https://github.com/musiienko25/timesheet-app/assets/42385970/e0322f63-549a-4bef-9ef9-ebc5078eee86)
