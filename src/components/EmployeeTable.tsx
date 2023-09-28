@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useState } from "react";
 import { Table, Button } from "react-bootstrap";
 import { useEmployeeContext } from "../EmployeeContext";
 import UserModal from "./UserModal";

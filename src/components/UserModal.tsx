@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { Modal, CloseButton } from "react-bootstrap";
 
 interface Timesheet {
