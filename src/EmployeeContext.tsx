@@ -1,4 +1,4 @@
-import React, { createContext, useState, useContext } from "react";
+import React, { createContext, useContext } from "react";
 import employeesData from "./data/users.json";
 import timesheetsData from "./data/timesheets.json";
 
@@ -19,8 +19,6 @@ interface Timesheet {
 interface EmployeeContextProps {
   employees: Employee[];
   timesheets: Timesheet[];
-  selectedMonth: string | null;
-  setSelectedMonth: React.Dispatch<React.SetStateAction<string | null>>;
 }
 
 const EmployeeContext = createContext<EmployeeContextProps | undefined>(
@@ -38,15 +36,11 @@ export function useEmployeeContext() {
 }
 
 export function EmployeeProvider({ children }: { children: React.ReactNode }) {
-  const [selectedMonth, setSelectedMonth] = useState<string | null>(null);
-
   return (
     <EmployeeContext.Provider
       value={{
         employees: employeesData,
         timesheets: timesheetsData,
-        selectedMonth,
-        setSelectedMonth,
       }}
     >
       {children}
