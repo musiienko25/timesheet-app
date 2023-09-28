@@ -1,5 +1,5 @@
-import React from "react";
-import { Modal, CloseButton } from "react-bootstrap";
+import React, { useState } from "react";
+import { Modal, CloseButton, Button } from "react-bootstrap";
 
 interface Timesheet {
   id: string;
@@ -35,6 +35,26 @@ function UserModal({ user, timesheets, show, onHide }: UserModalProps) {
 
   const sortedTimesheets = filteredTimesheets.sort(compareStartTime);
 
+  const [selectedDate, setSelectedDate] = useState<string | null>(null);
+
+  const handleDateChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    const selectedValue = event.target.value;
+    setSelectedDate(selectedValue !== "all" ? selectedValue : null);
+  };
+
+  const filteredByDateTimesheets = selectedDate
+    ? sortedTimesheets.filter((timesheet) =>
+        timesheet.startTime.includes(selectedDate)
+      )
+    : sortedTimesheets;
+
+  // Получение уникальных дат из записей
+  const uniqueDates = Array.from(
+    new Set(
+      sortedTimesheets.map((timesheet) => timesheet.startTime.substr(0, 10))
+    )
+  );
+
   return (
     <Modal show={show} onHide={onHide} className="employeetable__modal">
       <Modal.Header closeButton>
@@ -45,30 +65,40 @@ function UserModal({ user, timesheets, show, onHide }: UserModalProps) {
 
       <Modal.Body>
         {user && (
-          <table>
-            <thead className="usermodal__thead">
-              <tr>
-                <th>ID</th>
-                <th>Assessment</th>
-                <th className="test">Break Minutes</th>
-                <th>Minutes</th>
-                <th>Start Time</th>
-                <th>End Time</th>
-              </tr>
-            </thead>
-            <tbody className="usermodal__tbody">
-              {sortedTimesheets.map((timesheet: Timesheet) => (
-                <tr key={timesheet.id}>
-                  <td>{timesheet.id}</td>
-                  <td>{timesheet.assessment}</td>
-                  <td>{timesheet.breakMinutes}</td>
-                  <td>{timesheet.minutes}</td>
-                  <td>{timesheet.startTime}</td>
-                  <td>{timesheet.endTime}</td>
-                </tr>
+          <div>
+            <select onChange={handleDateChange}>
+              <option value="all">All Dates</option>
+              {uniqueDates.map((date) => (
+                <option key={date} value={date}>
+                  {date}
+                </option>
               ))}
-            </tbody>
-          </table>
+            </select>
+            <table>
+              <thead className="usermodal__thead">
+                <tr>
+                  <th>ID</th>
+                  <th>Assessment</th>
+                  <th className="test">Break Minutes</th>
+                  <th>Minutes</th>
+                  <th>Start Time</th>
+                  <th>End Time</th>
+                </tr>
+              </thead>
+              <tbody className="usermodal__tbody">
+                {filteredByDateTimesheets.map((timesheet: Timesheet) => (
+                  <tr key={timesheet.id}>
+                    <td>{timesheet.id}</td>
+                    <td>{timesheet.assessment}</td>
+                    <td>{timesheet.breakMinutes}</td>
+                    <td>{timesheet.minutes}</td>
+                    <td>{timesheet.startTime}</td>
+                    <td>{timesheet.endTime}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         )}
       </Modal.Body>
 
