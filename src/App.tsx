@@ -1,5 +1,6 @@
 // App.tsx
 import React from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import { EmployeeProvider } from "./EmployeeContext";
 import EmployeeTable from "./components/EmployeeTable";
