@@ -9,3 +9,7 @@ List of employees can be found from the users.json file and timesheets from time
 Once you are done push your project to Github and send the link the person you are in contact with.
 
 If you have question don't hesitate to ask.
+
+# Task result 
+
+![Gif](https://github.com/musiienko25/timesheet-app/assets/42385970/e0322f63-549a-4bef-9ef9-ebc5078eee86)
