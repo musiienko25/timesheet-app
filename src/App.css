@@ -17,7 +17,5 @@
 }
 
 .usermodal__select {
-  display: flex;
-  justify-content: center;
-  margin-top: 10px;
+  margin: 15px 20px;
 }
