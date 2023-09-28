@@ -40,7 +40,7 @@ function UserModal({ user, timesheets, show, onHide }: UserModalProps) {
                 <th>Assessment</th>
                 <th className="test">Break Minutes</th>
                 <th>Minutes</th>
-                <th className="text-center">Start Time</th>
+                <th>Start Time</th>
                 <th>End Time</th>
               </tr>
             </thead>
@@ -50,7 +50,7 @@ function UserModal({ user, timesheets, show, onHide }: UserModalProps) {
                   timesheet.userId === user.id && (
                     <tr key={timesheet.id}>
                       <td>{timesheet.id}</td>
-                      <td className="text-center">{timesheet.assessment}</td>
+                      <td>{timesheet.assessment}</td>
                       <td>{timesheet.breakMinutes}</td>
                       <td>{timesheet.minutes}</td>
                       <td>{timesheet.startTime}</td>
