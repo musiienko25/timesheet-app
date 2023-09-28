@@ -34,23 +34,23 @@ function UserModal({ user, timesheets, show, onHide }: UserModalProps) {
       <Modal.Body>
         {user && (
           <table>
-            <thead>
+            <thead className="usermodal__thead">
               <tr>
                 <th>ID</th>
                 <th>Assessment</th>
-                <th>Break Minutes</th>
+                <th className="test">Break Minutes</th>
                 <th>Minutes</th>
-                <th>Start Time</th>
+                <th className="text-center">Start Time</th>
                 <th>End Time</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody className="usermodal__tbody">
               {timesheets.map(
                 (timesheet: Timesheet) =>
                   timesheet.userId === user.id && (
                     <tr key={timesheet.id}>
                       <td>{timesheet.id}</td>
-                      <td>{timesheet.assessment}</td>
+                      <td className="text-center">{timesheet.assessment}</td>
                       <td>{timesheet.breakMinutes}</td>
                       <td>{timesheet.minutes}</td>
                       <td>{timesheet.startTime}</td>
