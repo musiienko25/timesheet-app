@@ -84,11 +84,7 @@ function EmployeeTable() {
         </Modal.Body>
 
         <Modal.Footer>
-          <CloseButton
-            type="button"
-            variant="secondary"
-            onClick={closeUserModal}
-          />
+          <CloseButton variant="secondary" onClick={closeUserModal} />
         </Modal.Footer>
       </Modal>
     </div>
