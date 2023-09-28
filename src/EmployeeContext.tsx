@@ -1,4 +1,3 @@
-// EmployeeContext.tsx
 import React, { createContext, useState, useContext } from "react";
 import employeesData from "./data/users.json";
 import timesheetsData from "./data/timesheets.json";
@@ -8,7 +7,6 @@ interface Employee {
   firstName: string;
   lastName: string;
 }
-
 interface Timesheet {
   id: string;
   assessment: number;
@@ -18,7 +16,6 @@ interface Timesheet {
   endTime: string;
   userId: string;
 }
-
 interface EmployeeContextProps {
   employees: Employee[];
   timesheets: Timesheet[];
