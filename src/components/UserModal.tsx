@@ -62,18 +62,20 @@ function UserModal({ user, timesheets, show, onHide }: UserModalProps) {
           Timesheets for {user?.firstName} {user?.lastName}
         </Modal.Title>
       </Modal.Header>
-
+      <div className="usermodal__select">
+        {" "}
+        <select onChange={handleDateChange}>
+          <option value="all">All Dates</option>
+          {uniqueDates.map((date) => (
+            <option key={date} value={date}>
+              {date}
+            </option>
+          ))}
+        </select>
+      </div>
       <Modal.Body>
         {user && (
           <div>
-            <select onChange={handleDateChange}>
-              <option value="all">All Dates</option>
-              {uniqueDates.map((date) => (
-                <option key={date} value={date}>
-                  {date}
-                </option>
-              ))}
-            </select>
             <table>
               <thead className="usermodal__thead">
                 <tr>

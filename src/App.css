@@ -15,3 +15,9 @@
   min-width: 150px;
   text-align: center;
 }
+
+.usermodal__select {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
