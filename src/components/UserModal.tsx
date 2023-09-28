@@ -1,8 +1,27 @@
-// UserModal.tsx
-import React from "react";
 import { Modal, CloseButton } from "react-bootstrap";
 
-function UserModal({ user, timesheets, show, onHide }: any) {
+interface Timesheet {
+  id: string;
+  assessment: number;
+  breakMinutes: number;
+  minutes: number;
+  startTime: string;
+  endTime: string;
+  userId: string;
+}
+
+interface UserModalProps {
+  user: {
+    firstName: string;
+    lastName: string;
+    id: string;
+  };
+  timesheets: Timesheet[];
+  show: boolean;
+  onHide: () => void;
+}
+
+function UserModal({ user, timesheets, show, onHide }: UserModalProps) {
   return (
     <Modal show={show} onHide={onHide} className="employeetable__modal">
       <Modal.Header closeButton>
@@ -26,7 +45,7 @@ function UserModal({ user, timesheets, show, onHide }: any) {
             </thead>
             <tbody>
               {timesheets.map(
-                (timesheet: any) =>
+                (timesheet: Timesheet) =>
                   timesheet.userId === user.id && (
                     <tr key={timesheet.id}>
                       <td>{timesheet.id}</td>
