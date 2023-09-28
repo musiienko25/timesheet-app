@@ -1,6 +1,8 @@
 // EmployeeTable.tsx
 import React, { useState } from "react";
-import { Table, Button, Modal } from "react-bootstrap";
+import { Table, Modal } from "react-bootstrap";
+import CloseButton from "react-bootstrap/CloseButton";
+import Button from "react-bootstrap/Button";
 import { useEmployeeContext } from "../EmployeeContext";
 
 function EmployeeTable() {
@@ -82,9 +84,9 @@ function EmployeeTable() {
           )}
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={closeUserModal}>
+          <CloseButton variant="secondary" onClick={closeUserModal}>
             Close
-          </Button>
+          </CloseButton>
         </Modal.Footer>
       </Modal>
     </div>
