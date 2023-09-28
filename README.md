@@ -1,10 +1,10 @@
 # Task description
 
-Your task is to create a table from a list employees and display their logged timesheets either in a modal or a seperate page. Each employees' timesheets must be filterable by month.
+My task was to create a table from a list of employees and display their logged timesheets either in a modal or on a separate page. Each employee's timesheets had to be filterable by month.
 
-Use the technologies that our web app uses (Typescript, Bootstrap/React Bootstrap etc.) and funtional components. Also, use React's Context in some way in your application.
+I used the technologies that our web app used, such as Typescript, Bootstrap/React Bootstrap, and functional components. Additionally, I incorporated React's Context in some way in the application.
 
-List of employees can be found from the users.json file and timesheets from timesheets.json.
+I obtained the list of employees from the users.json file and the timesheets from timesheets.json.
 
 # Task result 
 
