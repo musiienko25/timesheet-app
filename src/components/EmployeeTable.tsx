@@ -1,8 +1,5 @@
-// EmployeeTable.tsx
 import React, { useState } from "react";
-import { Table, Modal } from "react-bootstrap";
-import CloseButton from "react-bootstrap/CloseButton";
-import Button from "react-bootstrap/Button";
+import { Table, Modal, CloseButton, Button } from "react-bootstrap";
 import { useEmployeeContext } from "../EmployeeContext";
 
 function EmployeeTable() {
@@ -24,7 +21,6 @@ function EmployeeTable() {
           <tr>
             <th>Name</th>
             <th>Position</th>
-            {/* Добавьте другие заголовки по мере необходимости */}
           </tr>
         </thead>
         <tbody>
@@ -44,15 +40,18 @@ function EmployeeTable() {
         </tbody>
       </Table>
 
-      {/* Модальное окно для отображения табелей пользователя */}
-      <Modal show={!!selectedUser} onHide={closeUserModal}>
+      <Modal
+        show={!!selectedUser}
+        onHide={closeUserModal}
+        className="employeetable__modal"
+      >
         <Modal.Header closeButton>
           <Modal.Title>
             Timesheets for {selectedUser?.firstName} {selectedUser?.lastName}
           </Modal.Title>
         </Modal.Header>
+
         <Modal.Body>
-          {/* Вывод табелей выбранного пользователя */}
           {selectedUser && (
             <table>
               <thead>
@@ -83,10 +82,13 @@ function EmployeeTable() {
             </table>
           )}
         </Modal.Body>
+
         <Modal.Footer>
-          <CloseButton variant="secondary" onClick={closeUserModal}>
-            Close
-          </CloseButton>
+          <CloseButton
+            type="button"
+            variant="secondary"
+            onClick={closeUserModal}
+          />
         </Modal.Footer>
       </Modal>
     </div>

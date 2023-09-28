@@ -1,5 +1,3 @@
-// TimesheetDetail.tsx
-import React from "react";
 import { useParams } from "react-router-dom";
 import { useEmployeeContext } from "../EmployeeContext";
 
@@ -7,7 +5,6 @@ function TimesheetDetail() {
   const { userId } = useParams<{ userId: string }>();
   const { timesheets } = useEmployeeContext();
 
-  // Фильтрация табелей по userId
   const userTimesheets = timesheets.filter(
     (timesheet: any) => timesheet.userId === userId
   );
