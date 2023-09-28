@@ -1,24 +1,17 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+// App.tsx
+import React from "react";
+import "./App.css";
+import { EmployeeProvider } from "./EmployeeContext";
+import EmployeeTable from "./components/EmployeeTable";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Employee Timesheets</h1>
+      <EmployeeProvider>
+        {/* <MonthFilter /> */}
+        <EmployeeTable />
+      </EmployeeProvider>
     </div>
   );
 }
