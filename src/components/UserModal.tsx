@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Modal, CloseButton, Button } from "react-bootstrap";
+import { Modal, CloseButton } from "react-bootstrap";
 
 interface Timesheet {
   id: string;
