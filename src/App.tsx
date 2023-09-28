@@ -1,5 +1,5 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./App.css";
+import "./App.scss";
 import { EmployeeProvider } from "./EmployeeContext";
 import EmployeeTable from "./components/EmployeeTable";
 

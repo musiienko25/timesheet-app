@@ -1,0 +1,23 @@
+.usermodal {
+  .modal-content {
+    width: fit-content;
+  }
+  .modal-dialog {
+    justify-content: center;
+    display: flex;
+  }
+
+  th, td {
+    min-width: 150px;
+    padding: 8px;
+  }
+
+  &__select {
+    margin: 15px 20px;
+    text-align: center;
+  }
+}
+
+.App {
+  text-align: center;
+}
