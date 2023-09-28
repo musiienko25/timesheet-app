@@ -55,7 +55,14 @@ function UserModal({ user, timesheets, show, onHide }: UserModalProps) {
   );
 
   return (
-    <Modal show={show} onHide={onHide} className="usermodal">
+    <Modal
+      show={show}
+      onHide={() => {
+        onHide();
+        setSelectedMonth(null);
+      }}
+      className="usermodal"
+    >
       <Modal.Header closeButton>
         <Modal.Title>
           Timesheets for {user?.firstName} {user?.lastName}
@@ -103,7 +110,12 @@ function UserModal({ user, timesheets, show, onHide }: UserModalProps) {
       </Modal.Body>
 
       <Modal.Footer>
-        <CloseButton onClick={onHide} />
+        <CloseButton
+          onClick={() => {
+            onHide();
+            setSelectedMonth(null);
+          }}
+        />
       </Modal.Footer>
     </Modal>
   );
