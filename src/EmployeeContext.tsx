@@ -3,12 +3,10 @@ import React, { createContext, useState, useContext } from "react";
 import employeesData from "./data/users.json";
 import timesheetsData from "./data/timesheets.json";
 
-// Интерфейсы для типизации данных
 interface Employee {
   id: string;
   firstName: string;
   lastName: string;
-  // Добавьте другие поля сотрудника по мере необходимости
 }
 
 interface Timesheet {
@@ -19,7 +17,6 @@ interface Timesheet {
   startTime: string;
   endTime: string;
   userId: string;
-  // Добавьте другие поля табеля по мере необходимости
 }
 
 interface EmployeeContextProps {
@@ -45,8 +42,6 @@ export function useEmployeeContext() {
 
 export function EmployeeProvider({ children }: { children: React.ReactNode }) {
   const [selectedMonth, setSelectedMonth] = useState<string | null>(null);
-
-  // Реализуйте фильтрацию timesheets по месяцу по мере необходимости
 
   return (
     <EmployeeContext.Provider
